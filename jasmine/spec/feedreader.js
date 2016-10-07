@@ -48,7 +48,6 @@ $(function() {
 		 it('name defined', function() {
 			 for(var i = 0; i<allFeeds.length; i++){
 				 expect(allFeeds[i].name).toBeDefined();
-				 //console.log(allFeeds[i].name);
 				 expect(allFeeds[i].name).not.toBe(0);
 			 }
 		 });
@@ -75,9 +74,12 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
 		  		  
-		 it('menu visibility', function() {
+		 it('is menu visibile', function() {
 			 $('.menu-icon-link').trigger('click');
 			 expect($('body')).not.toHaveClass('menu-hidden');
+		 });
+		 
+		 it('is menu hidden', function() {
 			 $('.menu-icon-link').trigger('click');
 			 expect($('body')).toHaveClass('menu-hidden');			 			 
 		 });		  
