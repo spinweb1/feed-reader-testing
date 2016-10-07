@@ -96,21 +96,31 @@ $(function() {
 		 
 		beforeEach(function(done){
 			loadFeed(0, done);
-			console.log(loadFeed);
-			done();
 		});
 		 
 		it('Async loadFeed not null', function() {
-			expect($('.entry')).toBeInDOM();
+			expect($('.entry h2')).toBeDefined();
 		});	
 	});
 			 
 
-    /* TODO: Write a new test suite named "New Feed Selection"
+    /* TODO: Write a new test suite named "New Feed Selection" */
+	
+	describe('New Feed Selection', function() {
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
 		 
+		beforeEach(function(done){
+			loadFeed(0, done);
+		});
+		
+		it('content changes when feed loads', function() {
+			var feedOne = allFeeds[1].name;
+			var feedTwo = allFeeds[2].name;
+			expect(feedOne).not.toEqual(feedTwo);
+		});		
+	});		 
 }());
